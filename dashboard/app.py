@@ -18,22 +18,24 @@ st.set_page_config(page_title="Rolls-Royce | model review", page_icon="📈", la
 st.sidebar.title("Rolls-Royce model")
 dark = st.sidebar.toggle("Dark mode", value=False)
 BG, SURFACE, TEXT, MUTED, GRID, BORDER, TEAL, GOLD, BLUE = (
-    ("#101C2A", "#1D2C3C", "#F6F8FB", "#B5C7D5", "#34495A", "#3A5062", "#42C0BD", "#FFC45C", "#86AFFF")
+    ("#171522", "#282332", "#F5F0E9", "#C3BAC5", "#463E50", "#554B5D", "#C8ABD8", "#D8B775", "#A1AED1")
     if dark else
-    ("#F5F8FA", "#FFFFFF", "#173348", "#556B7B", "#E2EAEE", "#DCE5EA", "#168A84", "#C98526", "#426D9C")
+    ("#F4F0EC", "#FFFEFC", "#2D2737", "#6A626B", "#E8E1DB", "#DDD5CE", "#62436E", "#A57A3D", "#63738E")
 )
 st.markdown(f"""
 <style>
-.stApp {{background:{BG};color:{TEXT};}}
+.stApp {{background:{BG};color:{TEXT};font-family:Aptos,Arial,sans-serif;}}
 [data-testid="stHeader"] {{background:{BG};}}
-[data-testid="stSidebar"] {{background:{SURFACE};border-right:1px solid {BORDER};color:{TEXT};}}
+[data-testid="stSidebar"] {{background:{SURFACE};border-right:3px solid {GOLD};color:{TEXT};}}
 .stApp h1,.stApp h2,.stApp h3,.stApp p,.stApp label,[data-testid="stSidebar"] h1,[data-testid="stSidebar"] label {{color:{TEXT};}}
+.stApp h1,.stApp h2,.stApp h3,[data-testid="stSidebar"] h1 {{font-family:Georgia,'Times New Roman',serif;letter-spacing:-.025em;}}
+.stApp h1 {{border-bottom:1px solid {GOLD};padding-bottom:.45rem;}}
 .stApp [data-testid="stCaptionContainer"] p,[data-testid="stSidebar"] [data-testid="stCaptionContainer"] p {{color:{MUTED};}}
 [data-testid="stMetric"],[data-testid="stPlotlyChart"],[data-testid="stDataFrame"] {{background:{SURFACE};border:1px solid {BORDER};border-radius:9px;}}
-[data-testid="stMetric"] {{padding:.85rem 1rem;min-height:115px;}}
+[data-testid="stMetric"] {{padding:.85rem 1rem;min-height:115px;border-radius:2px;border-top:3px solid {TEAL};}}
 [data-testid="stMetric"] label,[data-testid="stMetricValue"] {{color:{TEXT};}}
-[data-testid="stPlotlyChart"],[data-testid="stDataFrame"] {{padding:.3rem;}}
-.scope {{background:{'#263E49' if dark else '#E7F2F1'};border-left:4px solid {TEAL};padding:.75rem 1rem;margin:.4rem 0 1rem;color:{TEXT};}}
+[data-testid="stPlotlyChart"],[data-testid="stDataFrame"] {{padding:.4rem;border-radius:2px;}}
+.scope {{background:{'#392F3D' if dark else '#EEE6DB'};border-left:4px solid {GOLD};padding:.8rem 1rem;margin:.4rem 0 1rem;color:{TEXT};}}
 [data-baseweb="select"] > div,[data-baseweb="input"] > div {{background:{SURFACE};color:{TEXT};border-color:{BORDER};}}
 [data-baseweb="select"] *,[data-baseweb="input"] input,[data-baseweb="popover"] li {{color:{TEXT};}}
 [data-baseweb="popover"],[data-baseweb="popover"] li {{background:{SURFACE};}}
@@ -49,8 +51,8 @@ def load() -> dict:
 def plot(fig: go.Figure, height: int = 420, bottom: int = 55) -> None:
     fig.update_layout(template="plotly_dark" if dark else "plotly_white", height=height,
                       paper_bgcolor=SURFACE, plot_bgcolor=SURFACE,
-                      font={"family": "Arial", "color": TEXT, "size": 12},
-                      title={"x": .025, "xanchor": "left", "font": {"size": 18}},
+                      font={"family": "Aptos, Arial", "color": TEXT, "size": 12},
+                      title={"x": .025, "xanchor": "left", "font": {"size": 19, "family": "Georgia"}},
                       margin={"l": 55, "r": 38, "t": 65, "b": bottom},
                       hoverlabel={"font": {"family": "Arial"}})
     fig.update_xaxes(gridcolor=GRID, zeroline=False, automargin=True)
@@ -71,7 +73,7 @@ st.markdown(f'<div class="scope">Reference price: 30 Jun 2026 · Model incorpora
             unsafe_allow_html=True)
 
 if view == "Valuation overview":
-    cards = st.columns(4)
+    cards = st.columns([1.4, 1, 1, 1])
     cards[0].metric("DCF value / share", f"£{data['cached_dcf']:.2f}")
     cards[1].metric("Comps midpoint / share", f"£{data['cached_comps']:.2f}")
     cards[2].metric("Reference share price", f"£{data['reference_price']:.2f}")
@@ -144,7 +146,7 @@ elif view == "DCF sensitivity":
             rows.append({"WACC": f"{wacc:.1f}%", "Growth": f"{growth:.1f}%", "Value": v})
     matrix = pd.DataFrame(rows).pivot(index="Growth", columns="WACC", values="Value")
     fig = go.Figure(go.Heatmap(z=matrix.values, x=matrix.columns, y=matrix.index,
-                               colorscale=[[0, "#315B83"], [.5, "#E9F1EE"], [1, "#B77B2B"]],
+                               colorscale=[[0, "#493358"], [.5, "#EAE2DB"], [1, "#A57A3D"]],
                                text=matrix.values, texttemplate="£%{text:.2f}",
                                hovertemplate="WACC %{x}<br>Growth %{y}<br>£%{z:.2f}/share<extra></extra>"))
     fig.update_layout(title="DCF value / share across WACC and terminal growth", xaxis_title="WACC", yaxis_title="Terminal growth")
