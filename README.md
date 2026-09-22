@@ -108,6 +108,12 @@ See [Formula, Query & Model Guide](docs/FORMULA_GUIDE.md), [Workbook Architectur
 
 ## Files
 
+### Interactive model-review dashboard
+
+Run `pip install -r requirements.txt` and `streamlit run dashboard/app.py`. For Streamlit Community Cloud use `dashboard/app.py` as the application entry point. The dashboard has a light/dark switch, full-width forecast charts, peer and scenario comparisons, and interactive WACC/terminal-growth DCF sensitivity. `dashboard/prepare_data.py` extracts its compact cached snapshot from the repository workbook; no additional data upload is needed to inspect the saved model.
+
+The £14.45 reference share price is dated 30 June 2026, while the incorporated H1 2026 results were published on 30 July 2026. The dashboard flags this timing mismatch and does not present the reference as a live quote or a fully contemporaneous 30 June valuation.
+
 - [`workbook/Rolls_Royce_Financial_Model_Portfolio.xlsx`](workbook/Rolls_Royce_Financial_Model_Portfolio.xlsx) - cached portfolio workbook
 - [`docs/Rolls_Royce_Project_Summary.pdf`](docs/Rolls_Royce_Project_Summary.pdf) - 3-page valuation summary
 - [`docs/FORMULA_GUIDE.md`](docs/FORMULA_GUIDE.md) - forecast, DCF, comps and sensitivity logic
