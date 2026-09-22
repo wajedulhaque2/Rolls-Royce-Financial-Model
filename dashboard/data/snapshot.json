@@ -1,0 +1,179 @@
+{
+  "reference_date": "2026-06-30",
+  "reference_price": 14.45,
+  "base_wacc": 0.09619399091951196,
+  "base_growth": 0.025,
+  "net_cash_m": 2136,
+  "shares_m": 8368,
+  "h1_ufcf_m": 2029.5,
+  "terminal_period": 4.5,
+  "cash_flows_m": [
+    1977.4847132683567,
+    4151.434082721006,
+    4557.852488278889,
+    4915.612944694848,
+    5207.420180819319
+  ],
+  "discount_periods": [
+    0.25,
+    1,
+    2,
+    3,
+    4
+  ],
+  "cached_dcf": 8.195352481966118,
+  "cached_comps": 9.273032295790959,
+  "terminal_ev_share": 0.7463841989578925,
+  "scenario_values": {
+    "Bear": 6.570789916212112,
+    "Base": 8.195352481966115,
+    "Bull": 10.431344333004859
+  },
+  "years": [
+    "FY2025A",
+    "FY2026E",
+    "FY2027E",
+    "FY2028E",
+    "FY2029E",
+    "FY2030E"
+  ],
+  "forecast": {
+    "Revenue": [
+      20059,
+      23684.54683480948,
+      26325.010676225676,
+      28811.767378259858,
+      31037.626045854115,
+      32905.411996171
+    ],
+    "Operating profit": [
+      3462,
+      4877.6607539117595,
+      5018.421155679534,
+      5511.491252335829,
+      5944.806149421782,
+      6297.2132618869255
+    ],
+    "EBIT margin": [
+      0.1725908569719328,
+      0.20594275195263603,
+      0.19063320495484964,
+      0.19129306369780588,
+      0.1915354653941346,
+      0.19137317784137434
+    ],
+    "Civil Aerospace": [
+      10382,
+      12612.733628318583,
+      14154.696682577625,
+      15514.363028441046,
+      16598.208105444657,
+      17322.950509708135
+    ],
+    "Defence": [
+      4772,
+      5255.62883879001,
+      5717.294332016845,
+      6222.386009669393,
+      6775.226061346003,
+      7380.588316920233
+    ],
+    "Power Systems": [
+      4892,
+      5804.184367700887,
+      6441.019661631208,
+      7063.018340149417,
+      7652.1918790634545,
+      8189.873169542633
+    ],
+    "UFCF": [
+      null,
+      4006.9847132683567,
+      4151.434082721006,
+      4557.852488278889,
+      4915.612944694848,
+      5207.420180819319
+    ]
+  },
+  "peers": [
+    {
+      "name": "GE Aerospace",
+      "ev_revenue": 9.370545767768302,
+      "ev_ebit": 43.79682363152844
+    },
+    {
+      "name": "Safran",
+      "ev_revenue": 4.5118141274857155,
+      "ev_ebit": 27.19850390609967
+    },
+    {
+      "name": "RTX",
+      "ev_revenue": 3.2116198397471862,
+      "ev_ebit": 24.985437936703832
+    },
+    {
+      "name": "MTU Aero Engines",
+      "ev_revenue": 2.3892986617643683,
+      "ev_ebit": 15.416370417912656
+    },
+    {
+      "name": "BAE Systems",
+      "ev_revenue": 1.9046637531798318,
+      "ev_ebit": 17.580012040939195
+    }
+  ],
+  "checks": [
+    {
+      "name": "Forecast Revenue Reconcilliation",
+      "status": "PASS"
+    },
+    {
+      "name": "Forecast Operating Profit Reconciliation",
+      "status": "PASS"
+    },
+    {
+      "name": "WACC Capital Structure Weights",
+      "status": "PASS"
+    },
+    {
+      "name": "DCF Enterprise Value Reconciliation",
+      "status": "PASS"
+    },
+    {
+      "name": "DCF Equity Value Reconciliation",
+      "status": "PASS"
+    },
+    {
+      "name": "DCF Per-Share Value Reconciliation",
+      "status": "PASS"
+    },
+    {
+      "name": "WACC Greater Than Terminal Growth",
+      "status": "PASS"
+    },
+    {
+      "name": "Sensitivity Base Case Reconciliation",
+      "status": "PASS"
+    },
+    {
+      "name": "Scenario Base Case Reconciliation",
+      "status": "PASS"
+    },
+    {
+      "name": "Comps Market Cap Link",
+      "status": "PASS"
+    },
+    {
+      "name": "Comps Enterprise Value Link",
+      "status": "PASS"
+    },
+    {
+      "name": "Rolls-Royce Net Cash Consistency",
+      "status": "PASS"
+    },
+    {
+      "name": "Historical Segment Revenue Reconciliation",
+      "status": "PASS"
+    }
+  ]
+}
